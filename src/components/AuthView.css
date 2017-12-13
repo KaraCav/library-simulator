@@ -1,0 +1,52 @@
+.mainAuth {
+  background-color: #4e1e29;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 15px;
+}
+.secondAuth {
+  background-color: #c6b38e;
+  margin-top: 10vh;
+  width: 75vw;
+  height: 75vh;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+.book {
+  padding: 20px;
+  font-family: 'Alegreya', serif;
+}
+.thirdAuth {
+  background-color: black;
+  width: 40vw;
+  height: 30vh;
+  border-radius: 5px;
+  color: #c5b899;
+  font-family: Open Sans;
+  letter-spacing: 1px;
+}
+.usernameAuth {
+  display: flex;
+  justify-content: center;
+}
+.inputAuth {
+  border-radius: 5px;
+  height: 16px;
+  margin: 14px;
+}
+.buttonAuth {
+  background-color: #a52422;
+  color: #c5b899;
+  font-size: 16px;
+  border: 1px solid #a52422;
+  height: 40px;
+  margin: 10px;
+  padding: 10px;
+  font-family: 'Alegreya', serif;
+  letter-spacing: 2px;
+}
