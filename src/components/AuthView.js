@@ -2,24 +2,42 @@ import React, { Component } from 'react';
 // import Navbar from './Navbar';
 import '../img/128px-Book_icoline.png';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
 import './AuthView.css';
 
 export default class AuthView extends Component {
-  // addToCart(name, price) {
-  //   this.setState({ productName: name, productPrice: price });
-  //   axios.post('/cart', {
-  //     name: this.state.productName,
-  //     price: this.state.productPrice
-  //   });
-  // }
+  constructor() {
+    super();
+
+    this.state = {
+      username: '',
+      password: ''
+    };
+    this.createUser = this.createUser.bind(this);
+    this.handleName = this.handleName.bind(this);
+    this.handlePass = this.handlePass.bind(this);
+  }
+  createUser(username, password) {
+    axios.post('/user', {
+      username: this.state.username,
+      password: this.state.password
+    });
+  }
+
+  handleName(userInput) {
+    this.setState({ username: userInput });
+  }
+
+  handlePass(userInput) {
+    this.setState({ password: userInput });
+  }
   render() {
-    // <button
-    //           className="loginButton"
-    //           onClick={() => {
-    //             this.addToCart(product.name, product.price);
-    //           }}
-    //         />
+    <button
+      className="loginButton"
+      onClick={() => {
+        this.createUser(this.state.username, this.state.password);
+      }}
+    />;
     return (
       <div className="mainAuth">
         <div className="secondAuth">
@@ -30,13 +48,26 @@ export default class AuthView extends Component {
           <div className="thirdAuth">
             <div className="usernameAuth">
               <p>Username</p>
-              <input className="inputAuth" />
+              <input
+                className="inputAuth"
+                onChange={e => this.handleName(e.target.value)}
+              />
             </div>
             <div className="usernameAuth">
               <p>Password</p>
-              <input className="inputAuth" />
+              <input
+                className="inputAuth"
+                onChange={e => this.handlePass(e.target.value)}
+              />
             </div>
-            <button className="buttonAuth">Register</button>{' '}
+            <button
+              className="buttonAuth"
+              onClick={() => {
+                this.createUser();
+              }}
+            >
+              Register
+            </button>{' '}
             <button className="buttonAuth">Login </button>
           </div>
         </div>
